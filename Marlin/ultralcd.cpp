@@ -163,11 +163,11 @@ volatile uint8_t slow_buttons;//Contains the bits of the currently pressed butto
 uint8_t currentMenuViewOffset;              /* scroll offset in the current menu */
 uint32_t blocking_enc;
 uint8_t lastEncoderBits;
-uint32_t encoderPosition;
 #if (SDCARDDETECT > 0)
 bool lcd_oldcardstatus;
 #endif
 #endif //ULTIPANEL
+uint32_t encoderPosition;
 
 menuFunc_t currentMenu = lcd_status_screen; /* function pointer to the currently active menu */
 uint32_t lcd_next_update_millis;

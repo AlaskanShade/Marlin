@@ -95,7 +95,7 @@
 // #define MACHINE_UUID "00000000-0000-0000-0000-000000000000"
 
 // This defines the number of extruders
-#define EXTRUDERS 1
+#define EXTRUDERS 2
 
 //// The following define selects which power supply you have. Please choose the one that matches your setup
 // 1 = ATX
@@ -144,8 +144,8 @@
 // 147 is Pt100 with 4k7 pullup
 // 110 is Pt100 with 1k pullup (non standard)
 
-#define TEMP_SENSOR_0 1
-#define TEMP_SENSOR_1 1
+#define TEMP_SENSOR_0 5
+#define TEMP_SENSOR_1 5
 #define TEMP_SENSOR_2 0
 #define TEMP_SENSOR_BED 1
 
@@ -205,9 +205,9 @@
 //  #define  DEFAULT_Kd 114
 
 // RigidBot
-#define DEFAULT_Kp 14.36
-#define DEFAULT_Ki 0.66
-#define DEFAULT_Kd 79.25
+//#define DEFAULT_Kp 14.36
+//#define DEFAULT_Ki 0.66
+//#define DEFAULT_Kd 79.25
 
 // MakerGear
 //    #define  DEFAULT_Kp 7.0
@@ -223,6 +223,12 @@
 //    #define  DEFAULT_Kp 14.36
 //    #define  DEFAULT_Ki 0.66
 //    #define  DEFAULT_Kd 79.25
+
+// E3Ds
+    #define  DEFAULT_Kp 26.44
+    #define  DEFAULT_Ki 2.24
+    #define  DEFAULT_Kd 77.98
+
 #endif // PIDTEMP
 
 // Bed Temperature Control
@@ -352,7 +358,7 @@ your extruder heater takes 2 minutes to hit the target on heating.
    #define INVERT_Y_DIR false
    #define INVERT_Z_DIR false
    #define INVERT_E0_DIR true
-   #define INVERT_E1_DIR true
+   #define INVERT_E1_DIR false
    #define INVERT_E2_DIR false
 
    #define X_HOME_DIR -1
@@ -365,7 +371,7 @@ your extruder heater takes 2 minutes to hit the target on heating.
    #if EXTRUDERS == 1
      #define X_DUAL_REDUCTION 0
    #elif EXTRUDERS == 2
-     #define X_DUAL_REDUCTION 57
+     #define X_DUAL_REDUCTION 32
    #else
      #define X_DUAL_REDUCTION 350 // Prevent head crashes if EXTRUDERS > 2
    #endif
@@ -386,8 +392,8 @@ your extruder heater takes 2 minutes to hit the target on heating.
    #define NUM_AXIS 4
    #define HOMING_FEEDRATE {50*60, 50*60, 15*60, 0}
 
-   #define DEFAULT_AXIS_STEPS_PER_UNIT   {44.3090,22.1545,1600,53.5}  // default steps per unit for Ultimaker
-   #define DEFAULT_MAX_FEEDRATE          {500, 500, 4, 25}    // (mm/sec)
+   #define DEFAULT_AXIS_STEPS_PER_UNIT   {100,50,1600,71.4}  // default steps per unit for Ultimaker
+   #define DEFAULT_MAX_FEEDRATE          {500, 500, 12, 25}    // (mm/sec)
    #define DEFAULT_MAX_ACCELERATION      {800,600,100,10000}    // X, Y, Z, E maximum start speed for accelerated moves. E default values are good for Skeinforge 40+, for older versions raise them a lot.
 
    #define DEFAULT_ACCELERATION          600    // X, Y, Z and E max acceleration in mm/s^2 for printing moves
@@ -664,8 +670,8 @@ your extruder heater takes 2 minutes to hit the target on heating.
 #define EEPROM_CHITCHAT
 
 // Preheat Constants
-#define PLA_PREHEAT_HOTEND_TEMP 200
-#define PLA_PREHEAT_HPB_TEMP 70
+#define PLA_PREHEAT_HOTEND_TEMP 180
+#define PLA_PREHEAT_HPB_TEMP 60
 #define PLA_PREHEAT_FAN_SPEED 255   // Insert Value between 0 and 255
 
 #define ABS_PREHEAT_HOTEND_TEMP 230
@@ -673,9 +679,9 @@ your extruder heater takes 2 minutes to hit the target on heating.
 #define ABS_PREHEAT_FAN_SPEED 255   // Insert Value between 0 and 255
 
 //LCD and SD support
-//#define ULTRA_LCD  //general LCD support, also 16x2
+#define ULTRA_LCD  //general LCD support, also 16x2
 //#define DOGLCD  // Support for SPI LCD 128x64 (Controller ST7565R graphic Display Family)
-//#define SDSUPPORT // Enable SD Card Support in Hardware Console
+#define SDSUPPORT // Enable SD Card Support in Hardware Console
 //#define SDSLOW // Use slower SD transfer mode (not normally needed - uncomment if you're getting volume init error)
 //#define SD_CHECK_AND_RETRY // Use CRC checks and retries on the SD communication
 //#define ENCODER_PULSES_PER_STEP 1 // Increase if you have a high resolution encoder
@@ -701,7 +707,7 @@ your extruder heater takes 2 minutes to hit the target on heating.
 // http://reprap.org/wiki/RepRapDiscount_Full_Graphic_Smart_Controller
 //
 // ==> REMEMBER TO INSTALL U8glib to your ARDUINO library folder: http://code.google.com/p/u8glib/wiki/u8glib
-//#define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
+#define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
 
 // The RepRapWorld REPRAPWORLD_KEYPAD v1.1
 // http://reprapworld.com/?products_details&products_id=202&cPath=1591_1626
@@ -715,7 +721,7 @@ your extruder heater takes 2 minutes to hit the target on heating.
 
 // RigidBot Panel V1.0
 // http://www.inventapart.com/
-#define RIGIDPANEL
+//#define ULTRA_LCD
 
 //automatic expansion
 #if defined (MAKRPANEL)
